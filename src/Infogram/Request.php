@@ -4,6 +4,8 @@ namespace Infogram;
 
 interface Request
 {
+    public function getTimeout();
+
     public function getMethod();
 
     public function getUrl();

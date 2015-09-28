@@ -12,10 +12,19 @@ class SimpleRequest implements Request
 
     private $version;
 
-    public function __construct($method, $url, $params) {
+    private $timeout;
+
+    public function __construct($method, $url, $params, $timeout = 20)
+    {
         $this->method = $method;
         $this->url = $url;
         $this->parameters = $params;
+        $this->timeout = $timeout;
+    }
+
+    public function getTimeout()
+    {
+        return $this->timeout;
     }
 
     public function getMethod()
@@ -33,7 +42,8 @@ class SimpleRequest implements Request
         return $this->parameters;
     }
 
-    public function setParameter($name, $value) {
+    public function setParameter($name, $value)
+    {
         $this->parameters[$name] = $value;
     }
 }
